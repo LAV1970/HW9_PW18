@@ -4,7 +4,7 @@ import json
 
 class AuthorsSpider(scrapy.Spider):
     name = "authors"
-    start_urls = ["http://quotes.toscrape.com/authors/"]
+    start_urls = ["http://quotes.toscrape.com/page/1/"]
 
     def parse(self, response):
         authors = []
