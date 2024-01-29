@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "fullname": "J.K. Rowling",
+    "born_date_location": "J.K. Rowling",
+    "description": null
+  },
+  {
+    "fullname": "Jimi Hendrix",
+    "born_date_location": "Jimi Hendrix",
+    "description": null
+  },
+  {
+    "fullname": "J.M. Barrie",
+    "born_date_location": "J.M. Barrie",
+    "description": null
+  },
+  {
+    "fullname": "E.E. Cummings",
+    "born_date_location": "E.E. Cummings",
+    "description": null
+  },
+  {
+    "fullname": "Khaled Hosseini",
+    "born_date_location": "Khaled Hosseini",
+    "description": null
+  },
+  {
+    "fullname": "Harper Lee",
+    "born_date_location": "Harper Lee",
+    "description": null
+  },
+  {
+    "fullname": "Madeleine L'Engle",
+    "born_date_location": "Madeleine L'Engle",
+    "description": null
+  },
+  {
+    "fullname": "Mark Twain",
+    "born_date_location": "Mark Twain",
+    "description": null
+  },
+  {
+    "fullname": "Dr. Seuss",
+    "born_date_location": "Dr. Seuss",
+    "description": null
+  },
+  {
+    "fullname": "George R.R. Martin",
+    "born_date_location": "George R.R. Martin",
+    "description": null
+  }
+]
