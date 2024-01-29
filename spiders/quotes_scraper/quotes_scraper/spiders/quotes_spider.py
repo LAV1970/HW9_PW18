@@ -1,5 +1,10 @@
 import scrapy
-import json
+from urllib.parse import urljoin
+
+custom_settings = {
+    "FEED_FORMAT": "json",
+    "FEED_URI": "quotes.json",
+}
 
 
 class QuotesSpider(scrapy.Spider):
@@ -7,23 +12,18 @@ class QuotesSpider(scrapy.Spider):
     start_urls = ["http://quotes.toscrape.com/page/1/"]
 
     def parse(self, response):
-        quotes = []
         for quote in response.css("div.quote"):
-            tags = quote.css("div.tags a.tag::text").getall()
-            author = quote.css("small::text").get().strip()
             text = quote.css("span.text::text").get().strip()
+            author = quote.css("small::text").get().strip()
+            tags = quote.css("div.tags a.tag::text").getall()
 
-            quotes.append(
-                {
-                    "tags": tags,
-                    "author": author,
-                    "quote": text,
-                }
-            )
+            yield {
+                "text": text,
+                "author": author,
+                "tags": tags,
+            }
 
         next_page = response.css("li.next a::attr(href)").get()
         if next_page:
-            yield scrapy.Request(url=next_page, callback=self.parse)
-
-        with open("quotes.json", "w") as quotes_file:
-            json.dump(quotes, quotes_file, indent=2)
+            next_page_url = urljoin(response.url, next_page)
+            yield scrapy.Request(url=next_page_url, callback=self.parse)
